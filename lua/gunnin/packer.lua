@@ -21,18 +21,22 @@ return require('packer').startup(function(use)
 	  end
   })
 
-  use( 'neovim/nvim-lspconfig')
+  --use( 'neovim/nvim-lspconfig')
   use( 'nvim-lua/completion-nvim')
   use( 'ziglang/zig.vim')
   use( 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim')
-
   use{'neoclide/coc.nvim', branch = 'release'}
+  use 'mfussenegger/nvim-lint'
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
-  use {"williamboman/mason.nvim"}
+  use {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+  }
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
       require("toggleterm").setup()
   end}
@@ -44,7 +48,7 @@ return require('packer').startup(function(use)
 		  -- {'williamboman/mason.nvim'},
 		  -- {'williamboman/mason-lspconfig.nvim'},
 
-		  {'neovim/nvim-lspconfig'},
+		  --{'neovim/nvim-lspconfig'},
 		  {'hrsh7th/nvim-cmp'},
 		  {'hrsh7th/cmp-nvim-lsp'},
 		  {'L3MON4D3/LuaSnip'},
